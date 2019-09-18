@@ -28,6 +28,13 @@ namespace Challenge_3_Web.Controllers
             
             return View(allData);
         }
+
+        public IActionResult DeleteData(string groupNumber)
+        {
+            _context.RemoveRange(_context.RowData.ToList());
+            _context.SaveChanges();
+            return RedirectToAction(nameof(DataStream));
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

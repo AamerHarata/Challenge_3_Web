@@ -7,36 +7,39 @@
     Layout = "_Layout";
 }
 
-<h4 class="display-4">Data Stream</h4>
-<table class="table table-success">
-    <tr>
-        <th>Gr. Nr.</th>
-        <th>Time</th>
-        <th>xAco</th>
-        <th>yAco</th>
-        <th>xAco</th>
-        <th>xGyro</th>
-        <th>yGyro</th>
-        <th>zGyro</th>
-        <th>Activity</th>
-        
-    </tr>
-    
-    @foreach (var rowData in Model)
-    {
+<div class="text-center">
+    <h4 class="display-4">Data Stream</h4>
+    <button class="btn btn-danger" onclick="location.href='@Url.Action("DeleteData")'">Delete All Data</button>
+    <table class="table table-success">
         <tr>
-            <td>@rowData.GroupNumber</td>
-            <td>@rowData.TimeStamp.ToString("hh:mm:ss t z"))</td>
-            <td>@Math.Round(rowData.xAco, 5)</td>
-            <td>@Math.Round(rowData.yAco, 5)</td>
-            <td>@Math.Round(rowData.zAco, 5)</td>
-            <td>@Math.Round(rowData.xGyro, 5)</td>
-            <td>@Math.Round(rowData.yGyro, 5)</td>
-            <td>@Math.Round(rowData.zGyro, 5)</td>
-            <td>@rowData.Activity</td>
+            <th>Gr. Nr.</th>
+            <th>Time</th>
+            <th>xAco</th>
+            <th>yAco</th>
+            <th>xAco</th>
+            <th>xGyro</th>
+            <th>yGyro</th>
+            <th>zGyro</th>
+            <th>Activity</th>
+        
         </tr>
-    }
+    
+        @foreach (var rowData in Model)
+        {
+            <tr>
+                <td>@rowData.GroupNumber</td>
+                <td>@rowData.TimeStamp.ToString("hh:mm:ss t z"))</td>
+                <td>@Math.Round(rowData.xAco, 5)</td>
+                <td>@Math.Round(rowData.yAco, 5)</td>
+                <td>@Math.Round(rowData.zAco, 5)</td>
+                <td>@Math.Round(rowData.xGyro, 5)</td>
+                <td>@Math.Round(rowData.yGyro, 5)</td>
+                <td>@Math.Round(rowData.zGyro, 5)</td>
+                <td>@rowData.Activity</td>
+            </tr>
+        }
     
     
     
-</table>
+    </table>
+</div>
