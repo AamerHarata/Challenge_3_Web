@@ -1,0 +1,35 @@
+@using Challenge_3_Web.Enum
+
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <div>
+        @Html.DropDownList(" " ,
+            new SelectList(Enum.GetValues(typeof(Activity))), "Select Activity",
+            new {@class = "form-control", @id="activity-animation"})
+    </div>
+    <br/>
+    <h4 id="activity-text"class="display-4">Waiting for data</h4>
+    <hr/>
+    <img id="activity-img" src=""/>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#activity-animation").change(function() {
+                const selectedActivity = $(this).find(":selected").text();
+                console.log(selectedActivity);
+                $("#activity-img").attr("src", "Files/Activity/"+selectedActivity+".gif");
+                $("#activity-text").text(selectedActivity);
+
+            });
+        })
+    </script>
+}

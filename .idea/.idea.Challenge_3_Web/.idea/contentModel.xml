@@ -10,11 +10,13 @@
       <e p="API" t="Include">
         <e p="Challenge_3_Receiver.cs" t="Include" />
       </e>
+      <e p="app.db" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Challenge_3_Web.csproj" t="IncludeRecursive" />
       <e p="Controllers" t="Include">
+        <e p="ActivityController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
@@ -46,6 +48,10 @@
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Activity" t="Include">
+          <e p="DataStream.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+        </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
@@ -62,6 +68,18 @@
           <e p="site.css" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
+        <e p="Files" t="Include">
+          <e p="Activity" t="Include">
+            <e p="Cycling.gif" t="Include" />
+            <e p="Downstairs.gif" t="Include" />
+            <e p="Running.gif" t="Include" />
+            <e p="Sitting.gif" t="Include" />
+            <e p="Sleeping.gif" t="Include" />
+            <e p="Transport.gif" t="Include" />
+            <e p="Upstairs.gif" t="Include" />
+            <e p="Walking.gif" t="Include" />
+          </e>
+        </e>
         <e p="js" t="Include">
           <e p="site.js" t="Include" />
         </e>

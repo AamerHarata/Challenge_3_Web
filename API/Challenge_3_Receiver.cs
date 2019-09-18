@@ -1,3 +1,5 @@
+using Challenge_3_Web.Data;
+using Challenge_3_Web.Enum;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Challenge_3_Web.API
@@ -5,14 +7,21 @@ namespace Challenge_3_Web.API
     [ApiController]
     public class Challenge_3_Receiver : ControllerBase
     {
-        public Challenge_3_Receiver()
+        private readonly ApplicationDbContext _context;
+        public Challenge_3_Receiver(ApplicationDbContext context)
         {
-            
+            _context = context;
         }
 
-        public IActionResult Receiver()
+        
+        [Route("/api/Challenge_3_Receiver")]
+        public IActionResult Receiver(int groupNumber, double xAco, double yAco, double zAco, double xGyro, double yGyro, double zGyro, Activity activity)
         {
-            return Ok();
+            
+            var receivedData = "Gr. Nr: " + groupNumber + ", xAco: " + xAco + ", yAco: " + yAco + ", zAco: " + zAco +
+                         ", xGyro: " + xGyro + ", yGyro: " + yGyro+", zGyro: "+zGyro+", Activity: "+ activity;
+            
+            return Ok(receivedData);
         }
     }
 }

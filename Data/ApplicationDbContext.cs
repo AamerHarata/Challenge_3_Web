@@ -11,7 +11,7 @@ namespace Challenge_3_Web.Data
         }
 
 
-        private DbSet<RowData> RowData { get; set; }
+        public DbSet<RowData> RowData { get; set; }
         
     }
 }
