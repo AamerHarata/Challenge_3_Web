@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Challenge_3_Web.Data;
 using Microsoft.AspNetCore.Mvc;
 using Challenge_3_Web.Models;
 
@@ -10,6 +11,12 @@ namespace Challenge_3_Web.Controllers
 {
     public class ActivityController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public ActivityController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -17,7 +24,9 @@ namespace Challenge_3_Web.Controllers
 
         public IActionResult DataStream()
         {
-            return View();
+            var allData = _context.RowData.OrderByDescending(x => x.TimeStamp).ThenBy(x => x.GroupNumber).ToList();
+            
+            return View(allData);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

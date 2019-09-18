@@ -1,4 +1,5 @@
 @using Challenge_3_Web.Enum
+@model IEnumerable<RowData>
 
 
 @{
@@ -9,30 +10,33 @@
 <h4 class="display-4">Data Stream</h4>
 <table class="table table-success">
     <tr>
-        <th>para1</th>
-        <th>para2</th>
-        <th>para3</th>
-        <th>para4</th>
-        <th>para5</th>
-        <th>para6</th>
+        <th>Gr. Nr.</th>
+        <th>Time</th>
+        <th>xAco</th>
+        <th>yAco</th>
+        <th>xAco</th>
+        <th>xGyro</th>
+        <th>yGyro</th>
+        <th>zGyro</th>
+        <th>Activity</th>
         
     </tr>
     
-    @* @foreach(){} *@
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-    </tr>
+    @foreach (var rowData in Model)
+    {
+        <tr>
+            <td>@rowData.GroupNumber</td>
+            <td>@rowData.TimeStamp.ToString("hh:mm:ss t z"))</td>
+            <td>@Math.Round(rowData.xAco, 5)</td>
+            <td>@Math.Round(rowData.yAco, 5)</td>
+            <td>@Math.Round(rowData.zAco, 5)</td>
+            <td>@Math.Round(rowData.xGyro, 5)</td>
+            <td>@Math.Round(rowData.yGyro, 5)</td>
+            <td>@Math.Round(rowData.zGyro, 5)</td>
+            <td>@rowData.Activity</td>
+        </tr>
+    }
+    
+    
+    
 </table>
