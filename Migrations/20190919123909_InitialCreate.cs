@@ -18,7 +18,14 @@ namespace Challenge_3_Web.Migrations
                     xGyro = table.Column<double>(nullable: false),
                     yGyro = table.Column<double>(nullable: false),
                     zGyro = table.Column<double>(nullable: false),
-                    Activity = table.Column<int>(nullable: false)
+                    xLinAco = table.Column<double>(nullable: false),
+                    yLinAco = table.Column<double>(nullable: false),
+                    zLinAco = table.Column<double>(nullable: false),
+                    xMag = table.Column<double>(nullable: false),
+                    yMag = table.Column<double>(nullable: false),
+                    zMag = table.Column<double>(nullable: false),
+                    Activity = table.Column<int>(nullable: false),
+                    Pred = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -24,17 +24,31 @@ namespace Challenge_3_Web.Migrations
 
                     b.Property<int>("GroupNumber");
 
+                    b.Property<int>("Pred");
+
                     b.Property<double>("xAco");
 
                     b.Property<double>("xGyro");
+
+                    b.Property<double>("xLinAco");
+
+                    b.Property<double>("xMag");
 
                     b.Property<double>("yAco");
 
                     b.Property<double>("yGyro");
 
+                    b.Property<double>("yLinAco");
+
+                    b.Property<double>("yMag");
+
                     b.Property<double>("zAco");
 
                     b.Property<double>("zGyro");
+
+                    b.Property<double>("zLinAco");
+
+                    b.Property<double>("zMag");
 
                     b.HasKey("Id");
 

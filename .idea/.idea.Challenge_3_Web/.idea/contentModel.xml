@@ -28,11 +28,6 @@
       <e p="Enum" t="Include">
         <e p="Activity.cs" t="Include" />
       </e>
-      <e p="Migrations" t="Include">
-        <e p="20190918131752_InitialCreate.cs" t="Include" />
-        <e p="20190918131752_InitialCreate.Designer.cs" t="Include" />
-        <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
-      </e>
       <e p="Models" t="Include">
         <e p="ErrorViewModel.cs" t="Include" />
         <e p="RowData.cs" t="Include" />
