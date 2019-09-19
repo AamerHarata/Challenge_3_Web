@@ -10,10 +10,10 @@
 <div class="text-center">
     <h4 class="display-4">Data Stream</h4>
     <div class="flex-column">
-        <button class="btn btn-danger" style="display: inline-block" onclick="location.href='@Url.Action("DeleteData")'">Delete All Data</button>
         @Html.DropDownList(" " ,
             new SelectList(Enum.GetValues(typeof(Activity))), "All Data",
-            new {@class = "form-control", @style="width: 40%; display:inline-block", @id="activity-selected"})
+            new {@class = "form-control", @style="width: 20%; display:inline-block", @id="activity-selected"})
+        <button class="btn btn-danger" id="delete-btn" style="display: inline-block">Delete All Data</button>
         <button class="btn btn-success" id="download-btn" style="display: inline-block">Download Data</button>
     </div>
     <br/><hr/>
@@ -69,20 +69,29 @@
         $(document).ready(function() {
             $("#download-btn").unbind().bind("click",
                 function() {
-                    var selected = $("#activity-selected").find(":selected").val();
+                    const selected = $("#activity-selected").find(":selected").val();
 
                     location.href = `/saveData/${selected}`;
 
-                    $.ajax({
-                        type: "GET",
-                        url: "/SaveData",
-                        data: { activity: selected },
-                        success: function(response) {
-                            console.log(response);
-                        }
-                    });
+//                    $.ajax({
+//                        type: "GET",
+//                        url: "/SaveData",
+//                        data: { activity: selected },
+//                        success: function(response) {
+//                            console.log(response);
+//                        }
+//                    });
 
                 });
-    })
+
+
+            $("#delete-btn").unbind().bind("click",
+                function() {
+                    const selected = $("#activity-selected").find(":selected").val();
+
+                    location.href = `/DeleteData/${selected}`;
+
+                });
+        })
     </script>
 }
