@@ -13,13 +13,17 @@ namespace Challenge_3_Web.Models
         public double yAco { get; set; }
         public double zAco { get; set; }
         
+        public double AcoSMV { get; set; }
+        
         public double xGyro { get; set; }
         public double yGyro { get; set; }
         public double zGyro { get; set; }
+        public double GyroSMV { get; set; }
         
         public double xLinAco { get; set; }
         public double yLinAco { get; set; }
         public double zLinAco { get; set; }
+        public double LinAcoSMV { get; set; }
         
         public double xMag { get; set; }
         public double yMag { get; set; }

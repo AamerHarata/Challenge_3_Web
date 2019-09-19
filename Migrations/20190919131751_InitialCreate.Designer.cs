@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Challenge_3_Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190919123909_InitialCreate")]
+    [Migration("20190919131751_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,9 +22,15 @@ namespace Challenge_3_Web.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<double>("AcoSMV");
+
                     b.Property<int>("Activity");
 
                     b.Property<int>("GroupNumber");
+
+                    b.Property<double>("GyroSMV");
+
+                    b.Property<double>("LinAcoSMV");
 
                     b.Property<int>("Pred");
 

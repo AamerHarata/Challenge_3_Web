@@ -20,9 +20,15 @@ namespace Challenge_3_Web.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<double>("AcoSMV");
+
                     b.Property<int>("Activity");
 
                     b.Property<int>("GroupNumber");
+
+                    b.Property<double>("GyroSMV");
+
+                    b.Property<double>("LinAcoSMV");
 
                     b.Property<int>("Pred");
 

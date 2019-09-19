@@ -1,3 +1,4 @@
+using System;
 using Challenge_3_Web.Data;
 using Challenge_3_Web.Enum;
 using Challenge_3_Web.Models;
@@ -24,7 +25,8 @@ namespace Challenge_3_Web.API
             {
                 GroupNumber = groupNumber, xAco = xAco, yAco = yAco, zAco = zAco, xGyro = xGyro, yGyro = yGyro, zGyro = zGyro,
                 xLinAco = xLinAco, yLinAco = yLinAco, zLinAco = zLinAco, xMag = xMag, yMag = yMag, zMag = zMag,
-                Activity = activity, Pred = pred
+                Activity = activity, Pred = pred,
+                AcoSMV = SMV(xAco, yAco, zAco), LinAcoSMV = SMV(xLinAco, yLinAco, zLinAco), GyroSMV = SMV(xGyro, yGyro, zGyro)
             };
             _context.Add(rowData);
             _context.SaveChanges();
@@ -34,6 +36,11 @@ namespace Challenge_3_Web.API
                          +", xGyro: " + xGyro + ", yGyro: " + yGyro+", zGyro: "+zGyro+", Activity: "+ activity+", Pred: "+ pred;
             
             return Ok(receivedData);
+        }
+
+        private double SMV(double x, double y, double z)
+        {
+            return Math.Sqrt(x * x + y * y + z * z);
         }
     }
 }
