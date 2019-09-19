@@ -89,7 +89,7 @@ namespace Challenge_3_Web.Controllers
 //            Type type = typeof(T);
 //            var props = type.GetProperties();
 
-            sList.AppendFormat("{0},{1},{2},{3},{4}, {5},{6},{7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}", "#","Gr. Nr.", "xAco", "yAco", "zAco", "xGyro", "yGyro",
+            sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18}", "#","Gr. Nr.","xAco","yAco","zAco","xGyro","yGyro",
                 "zGyro", "xLino", "yLino", "zLino", "xMag", "yMag", "zMag","AcoSMV", "GyroSMV", "LinAcoSMV", "Pred", "Activity");
             
 //            sList.Append(string.Join(",", props.Select(p => p.Name)));
@@ -99,7 +99,7 @@ namespace Challenge_3_Web.Controllers
             foreach (var element in list)
             {
 //                sList.Append(string.Join(",", props.Select(p => p.GetValue(element, null))));
-                sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}", i, element.GroupNumber, element.xAco, element.yAco, element.zAco,
+                sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18}", i, element.GroupNumber, element.xAco, element.yAco, element.zAco,
                     element.xGyro, element.yGyro, element.zGyro, element.xLinAco, element.yLinAco, element.zLinAco, element.xMag, element.yMag, element.zMag, element.AcoSMV, element.GyroSMV, element.LinAcoSMV, element.Pred, element.Activity);
                 sList.Append(Environment.NewLine);
                 i++;
