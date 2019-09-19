@@ -21,6 +21,8 @@ namespace Challenge_3_Web.API
             double xLinAco, double yLinAco, double zLinAco, double xMag, double yMag, double zMag,
             Activity activity, int pred)
         {
+            if((doubleIsZero(xGyro) && doubleIsZero(yGyro) && doubleIsZero(zGyro)) || (doubleIsZero(xLinAco) && doubleIsZero(yLinAco) && doubleIsZero(zLinAco)))
+                return Ok();
             var rowData = new RowData()
             {
                 GroupNumber = groupNumber, xAco = xAco, yAco = yAco, zAco = zAco, xGyro = xGyro, yGyro = yGyro, zGyro = zGyro,
@@ -41,6 +43,11 @@ namespace Challenge_3_Web.API
         private double SMV(double x, double y, double z)
         {
             return Math.Sqrt(x * x + y * y + z * z);
+        }
+
+        private bool doubleIsZero(double num)
+        {
+            return Math.Abs(num) < 0.000001;
         }
     }
 }
