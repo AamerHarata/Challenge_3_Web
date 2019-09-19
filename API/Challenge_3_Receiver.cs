@@ -33,7 +33,7 @@ namespace Challenge_3_Web.API
             _context.Add(rowData);
             _context.SaveChanges();
             
-            var receivedData = "Gr. Nr: " + groupNumber + ", xAco: " + xAco + ", yAco: " + yAco + ", zAco: " + zAco +", xLinAco: " + xLinAco +", yLinAco: "+yLinAco +", zLinAco: " + zLinAco
+            var receivedData = "groupNumber" + groupNumber + ", xAco: " + xAco + ", yAco: " + yAco + ", zAco: " + zAco +", xLinAco: " + xLinAco +", yLinAco: "+yLinAco +", zLinAco: " + zLinAco
                                +", xMag: " + xMag + ", yMag: "+ yMag+", zMag: "+ zMag
                          +", xGyro: " + xGyro + ", yGyro: " + yGyro+", zGyro: "+zGyro+", Activity: "+ activity+", Pred: "+ pred;
             
