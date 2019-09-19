@@ -9,17 +9,30 @@
 
 <div class="text-center">
     <h4 class="display-4">Data Stream</h4>
-    <button class="btn btn-danger" onclick="location.href='@Url.Action("DeleteData")'">Delete All Data</button>
+    <div class="flex-column">
+        <button class="btn btn-danger" style="display: inline-block" onclick="location.href='@Url.Action("DeleteData")'">Delete All Data</button>
+        @Html.DropDownList(" " ,
+            new SelectList(Enum.GetValues(typeof(Activity))), "All Data",
+            new {@class = "form-control", @style="width: 40%; display:inline-block", @id="activity-selected"})
+        <button class="btn btn-success" id="download-btn" style="display: inline-block">Download Data</button>
+    </div>
+    <br/><hr/>
     <table class="table table-success">
         <tr>
             <th>Gr. Nr.</th>
-            <th>Time</th>
+            @* <th>Time</th> *@
             <th>xAco</th>
             <th>yAco</th>
             <th>xAco</th>
             <th>xGyro</th>
             <th>yGyro</th>
             <th>zGyro</th>
+            <th>xLinAco</th>
+            <th>yLinAco</th>
+            <th>zLinAco</th>
+            <th>xMag</th>
+            <th>yMag</th>
+            <th>zMag</th>
             <th>Activity</th>
         
         </tr>
@@ -28,13 +41,19 @@
         {
             <tr>
                 <td>@rowData.GroupNumber</td>
-                <td>@rowData.TimeStamp.ToString("hh:mm:ss t z"))</td>
+                @* <td>@rowData.TimeStamp.ToString("hh:mm:ss t z"))</td> *@
                 <td>@Math.Round(rowData.xAco, 5)</td>
                 <td>@Math.Round(rowData.yAco, 5)</td>
                 <td>@Math.Round(rowData.zAco, 5)</td>
                 <td>@Math.Round(rowData.xGyro, 5)</td>
                 <td>@Math.Round(rowData.yGyro, 5)</td>
                 <td>@Math.Round(rowData.zGyro, 5)</td>
+                <td>@Math.Round(rowData.xLinAco, 5)</td>
+                <td>@Math.Round(rowData.yLinAco, 5)</td>
+                <td>@Math.Round(rowData.zLinAco, 5)</td>
+                <td>@Math.Round(rowData.xMag, 5)</td>
+                <td>@Math.Round(rowData.yMag, 5)</td>
+                <td>@Math.Round(rowData.zMag, 5)</td>
                 <td>@rowData.Activity</td>
             </tr>
         }
@@ -43,3 +62,27 @@
     
     </table>
 </div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#download-btn").unbind().bind("click",
+                function() {
+                    var selected = $("#activity-selected").find(":selected").val();
+
+                    location.href = `/saveData/${selected}`;
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/SaveData",
+                        data: { activity: selected },
+                        success: function(response) {
+                            console.log(response);
+                        }
+                    });
+
+                });
+    })
+    </script>
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Challenge_3_Web.Data;
+using Challenge_3_Web.Enum;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -48,6 +49,16 @@ namespace Challenge_3_Web
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
                 
             }
+            Console.WriteLine(Activity.Walking+" = "+ (int) Activity.Walking);
+            Console.WriteLine(Activity.Standing+" = "+(int) Activity.Standing);
+            Console.WriteLine(Activity.Sitting+" = "+(int) Activity.Sitting);
+            Console.WriteLine(Activity.Running+" = "+(int) Activity.Running);
+            Console.WriteLine(Activity.UpStairs+" = "+(int) Activity.UpStairs);
+            Console.WriteLine(Activity.DownStairs+" = "+(int) Activity.DownStairs);
+            Console.WriteLine(Activity.Biking+" = "+(int) Activity.Biking);
+            
+            
+            
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
