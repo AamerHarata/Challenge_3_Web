@@ -36,12 +36,33 @@ namespace Challenge_3_Web.Migrations
                 {
                     table.PrimaryKey("PK_RowData", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Windows",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    TimeStamp = table.Column<DateTime>(nullable: false),
+                    Min = table.Column<double>(nullable: false),
+                    Max = table.Column<double>(nullable: false),
+                    Mode = table.Column<double>(nullable: false),
+                    Mean = table.Column<double>(nullable: false),
+                    Std = table.Column<double>(nullable: false),
+                    Activity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Windows", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "RowData");
+
+            migrationBuilder.DropTable(
+                name: "Windows");
         }
     }
 }

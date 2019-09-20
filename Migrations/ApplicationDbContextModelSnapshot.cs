@@ -63,6 +63,30 @@ namespace Challenge_3_Web.Migrations
 
                     b.ToTable("RowData");
                 });
+
+            modelBuilder.Entity("Challenge_3_Web.Models.Window", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Activity");
+
+                    b.Property<double>("Max");
+
+                    b.Property<double>("Mean");
+
+                    b.Property<double>("Min");
+
+                    b.Property<double>("Mode");
+
+                    b.Property<double>("Std");
+
+                    b.Property<DateTime>("TimeStamp");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Windows");
+                });
 #pragma warning restore 612, 618
         }
     }
