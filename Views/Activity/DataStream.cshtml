@@ -1,5 +1,6 @@
 @using Challenge_3_Web.Enum
-@model IEnumerable<RowData>
+@* @model IEnumerable<RowData> *@
+@model IEnumerable<Window>
 
 
 @{
@@ -19,41 +20,49 @@
     <br/><hr/>
     <table class="table table-success">
         <tr>
-            <th>Gr. Nr.</th>
-            @* <th>Time</th> *@
-            <th>xAco</th>
-            <th>yAco</th>
-            <th>xAco</th>
-            <th>xGyro</th>
-            <th>yGyro</th>
-            <th>zGyro</th>
-            <th>xLinAco</th>
-            <th>yLinAco</th>
-            <th>zLinAco</th>
-            <th>xMag</th>
-            <th>yMag</th>
-            <th>zMag</th>
+            @* <th>Gr. Nr.</th> *@
+            @* <th>xAco</th> *@
+            @* <th>yAco</th> *@
+            @* <th>xAco</th> *@
+            @* <th>xGyro</th> *@
+            @* <th>yGyro</th> *@
+            @* <th>zGyro</th> *@
+            @* <th>xLinAco</th> *@
+            @* <th>yLinAco</th> *@
+            @* <th>zLinAco</th> *@
+            @* <th>xMag</th> *@
+            @* <th>yMag</th> *@
+            @* <th>zMag</th> *@
+            @* <th>Activity</th> *@
+            <th>Min</th>
+            <th>Max</th>
+            <th>Mean</th>
+            <th>Mode</th>
+            <th>Std.</th>
             <th>Activity</th>
-        
         </tr>
     
         @foreach (var rowData in Model)
         {
             <tr>
-                <td>@rowData.GroupNumber</td>
-                @* <td>@rowData.TimeStamp.ToString("hh:mm:ss t z"))</td> *@
-                <td>@Math.Round(rowData.xAco, 5)</td>
-                <td>@Math.Round(rowData.yAco, 5)</td>
-                <td>@Math.Round(rowData.zAco, 5)</td>
-                <td>@Math.Round(rowData.xGyro, 5)</td>
-                <td>@Math.Round(rowData.yGyro, 5)</td>
-                <td>@Math.Round(rowData.zGyro, 5)</td>
-                <td>@Math.Round(rowData.xLinAco, 5)</td>
-                <td>@Math.Round(rowData.yLinAco, 5)</td>
-                <td>@Math.Round(rowData.zLinAco, 5)</td>
-                <td>@Math.Round(rowData.xMag, 5)</td>
-                <td>@Math.Round(rowData.yMag, 5)</td>
-                <td>@Math.Round(rowData.zMag, 5)</td>
+                @* <td>@rowData.GroupNumber</td> *@
+                @* <td>@Math.Round(rowData.xAco, 5)</td> *@
+                @* <td>@Math.Round(rowData.yAco, 5)</td> *@
+                @* <td>@Math.Round(rowData.zAco, 5)</td> *@
+                @* <td>@Math.Round(rowData.xGyro, 5)</td> *@
+                @* <td>@Math.Round(rowData.yGyro, 5)</td> *@
+                @* <td>@Math.Round(rowData.zGyro, 5)</td> *@
+                @* <td>@Math.Round(rowData.xLinAco, 5)</td> *@
+                @* <td>@Math.Round(rowData.yLinAco, 5)</td> *@
+                @* <td>@Math.Round(rowData.zLinAco, 5)</td> *@
+                @* <td>@Math.Round(rowData.xMag, 5)</td> *@
+                @* <td>@Math.Round(rowData.yMag, 5)</td> *@
+                @* <td>@Math.Round(rowData.zMag, 5)</td> *@
+                <td>@rowData.Min</td>
+                <td>@rowData.Max</td>
+                <td>@rowData.Mean</td>
+                <td>@rowData.Mode</td>
+                <td>@rowData.Std</td>
                 <td>@rowData.Activity</td>
             </tr>
         }

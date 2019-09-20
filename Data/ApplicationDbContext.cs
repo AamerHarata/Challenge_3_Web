@@ -12,6 +12,7 @@ namespace Challenge_3_Web.Data
 
 
         public DbSet<RowData> RowData { get; set; }
+        public DbSet<Window> Windows { get; set; }
         
     }
 }

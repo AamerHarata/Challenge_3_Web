@@ -40,6 +40,32 @@ namespace Challenge_3_Web.API
             return Ok(receivedData);
         }
 
+
+        [Route("api/Challenge_3_WindowReceiver")]
+        public IActionResult WindowReceiver(double min, double max, double std, double mean, double mode, Activity activity)
+        {
+            if (doubleIsZero(std) && doubleIsZero(std))
+                return Ok();
+            
+            var window = new Window()
+            {
+                Min = min, Max = max, Std = std, Mean = mean, Mode = mode, Activity = activity, TimeStamp = DateTime.Now
+            };
+
+            _context.Add(window);
+            _context.SaveChanges();
+
+            var receivedData = "Min: " + min + ", Max: " + max + ", Std: " + std + ", Mean: " + mean + ", Mode: " +
+                               mode + ", Activity: " + activity;
+            return Ok(receivedData);
+            
+            
+        }
+        
+        
+        
+        
+
         private double SMV(double x, double y, double z)
         {
             return Math.Sqrt(x * x + y * y + z * z);
