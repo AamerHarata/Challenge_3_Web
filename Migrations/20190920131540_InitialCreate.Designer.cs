@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Challenge_3_Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190920114346_InitialCreate")]
+    [Migration("20190920131540_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,15 +73,35 @@ namespace Challenge_3_Web.Migrations
 
                     b.Property<int>("Activity");
 
-                    b.Property<double>("Max");
+                    b.Property<double>("MaxAcoSMV");
 
-                    b.Property<double>("Mean");
+                    b.Property<double>("MaxGyroSMV");
 
-                    b.Property<double>("Min");
+                    b.Property<double>("MaxLinAcoSMV");
 
-                    b.Property<double>("Mode");
+                    b.Property<double>("MeanAcoSMV");
 
-                    b.Property<double>("Std");
+                    b.Property<double>("MeanGyroSMV");
+
+                    b.Property<double>("MeanLinAcoSMV");
+
+                    b.Property<double>("MinAcoSMV");
+
+                    b.Property<double>("MinGyroSMV");
+
+                    b.Property<double>("MinLinAcoSMV");
+
+                    b.Property<double>("ModeAcoSMV");
+
+                    b.Property<double>("ModeGyroSMV");
+
+                    b.Property<double>("ModeLinAcoSMV");
+
+                    b.Property<double>("StdAcoSMV");
+
+                    b.Property<double>("StdGyroSMV");
+
+                    b.Property<double>("StdLinAcoSMV");
 
                     b.Property<DateTime>("TimeStamp");
 

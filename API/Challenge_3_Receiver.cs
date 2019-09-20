@@ -42,21 +42,26 @@ namespace Challenge_3_Web.API
 
 
         [Route("api/Challenge_3_WindowReceiver")]
-        public IActionResult WindowReceiver(double min, double max, double std, double mean, double mode, Activity activity)
+        public IActionResult WindowReceiver(double MaxAcoSMV, double MinAcoSMV, double MeanAcoSMV, double ModeAcoSMV, double StdAcoSMV,
+            double MaxLinAcoSMV, double MinLinAcoSMV, double MeanLinAcoSMV, double ModeLinAcoSMV, double StdLinAcoSMV,
+            double MaxGyroSMV, double MinGyroSMV, double MeanGyroSMV, double ModeGyroSMV, double StdGyroSMV,
+            Activity activity)
         {
-            if (doubleIsZero(std) && doubleIsZero(std))
+            if (doubleIsZero(MeanAcoSMV) || doubleIsZero(MeanGyroSMV) || doubleIsZero(MeanLinAcoSMV))
                 return Ok();
             
             var window = new Window()
             {
-                Min = min, Max = max, Std = std, Mean = mean, Mode = mode, Activity = activity, TimeStamp = DateTime.Now
+                MinAcoSMV = MinAcoSMV, MaxAcoSMV = MaxAcoSMV, MeanAcoSMV = MeanAcoSMV, ModeAcoSMV = ModeAcoSMV, StdAcoSMV = StdAcoSMV,
+                MinLinAcoSMV = MinLinAcoSMV, MaxLinAcoSMV = MaxLinAcoSMV, MeanLinAcoSMV = MeanLinAcoSMV, ModeLinAcoSMV = ModeLinAcoSMV, StdLinAcoSMV = StdLinAcoSMV, 
+                MinGyroSMV = MinGyroSMV, MaxGyroSMV = MaxGyroSMV, MeanGyroSMV = MeanGyroSMV, ModeGyroSMV = ModeGyroSMV, StdGyroSMV = StdGyroSMV,
+                Activity = activity, TimeStamp = DateTime.Now
             };
 
             _context.Add(window);
             _context.SaveChanges();
 
-            var receivedData = "Min: " + min + ", Max: " + max + ", Std: " + std + ", Mean: " + mean + ", Mode: " +
-                               mode + ", Activity: " + activity;
+            var receivedData = "New Window Saved .. OK()";
             return Ok(receivedData);
             
             

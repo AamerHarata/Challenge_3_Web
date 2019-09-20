@@ -35,8 +35,8 @@ namespace Challenge_3_Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
-            
+
+
             if (Environment.IsDevelopment())
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
@@ -47,11 +47,11 @@ namespace Challenge_3_Web
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-                
+
             }
-            
-            
-            
+
+
+
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

@@ -138,17 +138,23 @@ namespace Challenge_3_Web.Controllers
 //            Type type = typeof(T);
 //            var props = type.GetProperties();
 
-            sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6}", "#","Min","Max","Mean","Mode","Std","Activity");
+            sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16}", "#","MinAco","MaxAco","MeanAco","ModeAco","StdAco"
+                ,"MinGyro","MaxGyro","MeanGyro","ModeGyro","StdGyro"
+                ,"MinLinAco","MaxLinAco","MeanLinAco","ModeLinAco","StdLinAco"
+                ,"Activity");
             
 //            sList.Append(string.Join(",", props.Select(p => p.Name)));
             sList.Append(Environment.NewLine);
 
             var i = 1;
-            foreach (var element in list)
+            foreach (var e in list)
             {
 //                sList.Append(string.Join(",", props.Select(p => p.GetValue(element, null))));
-                sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6}", i,element.Min, element.Max, element.Mean, element.Mode,
-                    element.Std, element.Activity);
+                sList.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16}", i,e.MinAcoSMV, e.MaxAcoSMV, e.MeanAcoSMV, e.ModeAcoSMV,
+                    e.StdAcoSMV,
+                    e.MinLinAcoSMV, e.MaxLinAcoSMV, e.MeanLinAcoSMV, e.ModeLinAcoSMV, e.StdLinAcoSMV,
+                    e.MinGyroSMV, e.MaxGyroSMV, e.MeanGyroSMV, e.ModeGyroSMV, e.StdGyroSMV,
+                    e.Activity);
                 sList.Append(Environment.NewLine);
                 i++;
             }
