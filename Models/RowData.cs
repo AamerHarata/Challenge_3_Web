@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Challenge_3_Web.Enum;
 
 namespace Challenge_3_Web.Models
@@ -7,7 +8,8 @@ namespace Challenge_3_Web.Models
     {
         public string Id { get; set; }
         public int GroupNumber { get; set; }
-        public DateTime TimeStamp { get; } = DateTime.Now;
+        
+        public DateTime TimeStamp { get; set; }
         
         public double xAco { get; set; }
         public double yAco { get; set; }

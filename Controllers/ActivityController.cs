@@ -30,6 +30,22 @@ namespace Challenge_3_Web.Controllers
             return View(allData);
         }
 
+        [Route("/GetLatestActivity")]
+        public IActionResult LastActivity()
+        {
+            var activity = "None";
+            var lastActivity = _context.RowData.OrderByDescending(x => x.TimeStamp).Take(1).FirstOrDefault();
+
+            if (lastActivity == null || lastActivity.Activity.ToString() == "0" || (DateTime.Now - lastActivity.TimeStamp).TotalSeconds > 5)
+                return Ok(new {activity = activity});
+
+            activity = lastActivity.Activity.ToString();
+            return Ok(new{activity = activity, activityTime= ToDate(lastActivity.TimeStamp), currentTime = ToDate(DateTime.Now), Diff = (DateTime.Now - lastActivity.TimeStamp).Seconds});
+
+
+//            return lastActivity == null ? Ok(new {activity = "none"}) : Ok(new { activity = lastActivity.Activity.ToString()});
+        }
+
         [Route("/DeleteData/{activity?}")]
         public IActionResult DeleteData(string activity)
         {
@@ -106,6 +122,11 @@ namespace Challenge_3_Web.Controllers
             }
 
             return sList.ToString();
+        }
+
+        private string ToDate(DateTime date)
+        {
+            return date.ToString("hh:mm:ss");
         }
     }
 }

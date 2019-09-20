@@ -27,7 +27,7 @@ namespace Challenge_3_Web.API
             {
                 GroupNumber = groupNumber, xAco = xAco, yAco = yAco, zAco = zAco, xGyro = xGyro, yGyro = yGyro, zGyro = zGyro,
                 xLinAco = xLinAco, yLinAco = yLinAco, zLinAco = zLinAco, xMag = xMag, yMag = yMag, zMag = zMag,
-                Activity = activity, Pred = pred,
+                Activity = activity, Pred = pred, TimeStamp = DateTime.Now,
                 AcoSMV = SMV(xAco, yAco, zAco), LinAcoSMV = SMV(xLinAco, yLinAco, zLinAco), GyroSMV = SMV(xGyro, yGyro, zGyro)
             };
             _context.Add(rowData);

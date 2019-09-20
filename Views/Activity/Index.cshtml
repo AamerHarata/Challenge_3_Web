@@ -15,7 +15,7 @@
     <br/>
     <h4 id="activity-text"class="display-4">Waiting for data</h4>
     <hr/>
-    <img id="activity-img" src=""/>
+    <img id="activity-img" src="Files/Activity/Sleeping.gif"/>
 </div>
 
 
@@ -23,13 +23,37 @@
 {
     <script>
         $(document).ready(function() {
-            $("#activity-animation").change(function() {
-                const selectedActivity = $(this).find(":selected").text();
-                console.log(selectedActivity);
-                $("#activity-img").attr("src", "Files/Activity/"+selectedActivity+".gif");
-                $("#activity-text").text(selectedActivity);
+            let currentActivity = "None";
+            setInterval(function() { invokeActivity() }, 3000);
+//            $("#activity-animation").change(function() {
+//                const selectedActivity = $(this).find(":selected").text();
+//                console.log(selectedActivity);
+//                $("#activity-img").attr("src", "Files/Activity/"+selectedActivity+".gif");
+//                $("#activity-text").text(selectedActivity);
+//
+//            });
+            function invokeActivity() {
+                
+                $.ajax({
+                    type: "GET",
+                    url: "/GetLatestActivity",
+                    success: function(response) {
+                        console.log(response);
+                        const respActivity = response.activity;
+                        if (respActivity !== currentActivity) {
+                            if (respActivity === "None") {
+                                $("#activity-img").attr("src", "Files/Activity/Sleeping.gif");
+                                $("#activity-text").text("No Signal!");
+                            } else {
+                                $("#activity-img").attr("src", `Files/Activity/${respActivity}.gif`);
+                                $("#activity-text").text(respActivity);
+                            }
 
-            });
+                            currentActivity = respActivity;
+                        }
+                    }
+                });
+            }
         })
     </script>
 }
