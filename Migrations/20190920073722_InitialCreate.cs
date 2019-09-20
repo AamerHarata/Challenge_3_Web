@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Challenge_3_Web.Migrations
 {
@@ -12,6 +13,7 @@ namespace Challenge_3_Web.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     GroupNumber = table.Column<int>(nullable: false),
+                    TimeStamp = table.Column<DateTime>(nullable: false),
                     xAco = table.Column<double>(nullable: false),
                     yAco = table.Column<double>(nullable: false),
                     zAco = table.Column<double>(nullable: false),
